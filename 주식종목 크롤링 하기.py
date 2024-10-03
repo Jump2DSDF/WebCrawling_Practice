@@ -1,3 +1,26 @@
+# 다음 코드는 FNGuide에서 특정종목(여기서는 엔씨소프트)의 정보를 크롤링하고, MYSQL에 저장하며, 오류발생시 Slack의 Bot을 통해 알람메시지를 띄워주는 코드입니다.
+# MySQL에서는 다음의 쿼리를 통해 데이터베이스 테이블을 생성해주어야 합니다.
+# create table stock.daily_market(
+#	seq INT NOT NULL AUTO_INCREMENT,
+#    dt date,
+#    item_name varchar(100),
+#    item_code varchar(100),
+#    price bigint,
+#    foreign_ownership_ratio float,
+#    rel_return float,
+#    per float, 
+#    per_12m float,
+#    per_ind float,
+#    pbr float,
+#    dividend_yield float,
+#    volume bigint,
+#    trans_price bigint,
+#    market_capital_prefer bigint,
+#    market_cdaily_marketdaily_marketapital_common bigint,
+#    primary key(seq)
+# )
+# 다음의 서적의 연습용 코드를 변경한 것임을 밝혀둡니다. 자세한 내용은 원저를 참조해주십시오. 장철원. (2012). 웹 크롤링 & 데이터 분석 with 파이썬 (pp. 215-291). n.p.: 인사이트.
+
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pymysql
